@@ -40,6 +40,7 @@ class Bills(models.Model):
     amount = models.FloatField(blank=False)
     quantity = models.FloatField(blank=True)
     post_date = models.DateTimeField(auto_now_add=True)
+    bill_status = models.BooleanField(default=False)
 
     
 
