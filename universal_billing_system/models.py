@@ -60,7 +60,7 @@ class Bills(models.Model):
         merchants_bills=cls.objects.filter(generated_by=generated_by).all()
         return merchants_bills
 
-class NewsLetterRecipients(models.Model):
+class BillRecipients(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
 

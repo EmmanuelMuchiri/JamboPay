@@ -176,8 +176,6 @@ def new_bill(request):
         form =BillsForm(request.POST,request.FILES)
         if form.is_valid():
             bill = form.save(commit = False)
-            # bill.username = current_user
-            # bill.generated_by=current_user
             bill.generated_by=current_user
             bill.save()
         return HttpResponseRedirect('/index')

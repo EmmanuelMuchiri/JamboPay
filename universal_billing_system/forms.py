@@ -30,7 +30,7 @@ class BillsForm(forms.ModelForm):
 
 class NoteForm(forms.ModelForm):
     class Meta:
-        model = NewsLetterRecipients
+        model = BillRecipients
         fields = '__all__'
 
 class NewsLetterForm(forms.Form):
