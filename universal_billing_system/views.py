@@ -133,25 +133,17 @@ class GetPayments(APIView):
         all_bills = Payments.objects.all()
         serializers = PaymentsSerializer(all_bills, many=True)
         return Response(serializers.data)
+    
+
+class PostPayments(APIView):
+    permission_classes = (IsAuthenticated,)
     def post(self, request, format=None):
         serializers = PaymentsSerializer(data=request.data)
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
-        
-        #update bills
-        specific_bill = Bills.pk
-        paid_bill = Payments.bill_number
-
-        if specific_bill == paid_bill:
-            specific_bill.status=1
-            # print('true')
-            specific_bill.save()
-
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-        permission_classes = (IsAdminOrReadOnly,)
-
-
+        
 @login_required(login_url='/accounts/login/')
 def customers(request):
     url = ('http://127.0.0.1:8000/api/BillsDetails')
