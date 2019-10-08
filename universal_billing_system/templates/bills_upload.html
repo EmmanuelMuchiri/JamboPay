@@ -24,7 +24,7 @@
         {% else %}
 
         {{order}}
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" style="color: aqua">
             {% csrf_token %}
             <label for="">Upload a File</label>
             <input type="file" name="file" id="">

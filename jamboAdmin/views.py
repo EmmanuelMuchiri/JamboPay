@@ -30,7 +30,7 @@ def indexone(request):
 @login_required(login_url='/accounts/login/')
 def merchants(request):
     url = ('http://127.0.0.1:8000/api/GetMerchants')
-    headers = {'Authorization': 'Token 2683eacc0edd0c08360e7532197f303dc574a3ac'}
+    headers = {'Authorization': 'Token 2b42fbfc066116e0359afcf5b3253212b834bc64'}
     response = requests.get(url, headers=headers)
     details = response.json()
     for detail in details:
@@ -47,7 +47,7 @@ def merchants(request):
 @login_required(login_url='/accounts/login/')
 def revenueStreams(request):
     url = ('http://127.0.0.1:8000/api/GetRevenueStreams')
-    headers = {'Authorization': 'Token 2683eacc0edd0c08360e7532197f303dc574a3ac'}
+    headers = {'Authorization': 'Token 2b42fbfc066116e0359afcf5b3253212b834bc64'}
     response = requests.get(url, headers=headers)
     details = response.json()
     for detail in details:
@@ -58,7 +58,7 @@ def revenueStreams(request):
 
 def payments(request):
     url = ('http://127.0.0.1:8000/api/GetPayments/')
-    headers = {'Authorization': 'Token 2683eacc0edd0c08360e7532197f303dc574a3ac'}
+    headers = {'Authorization': 'Token 2b42fbfc066116e0359afcf5b3253212b834bc64'}
     response = requests.get(url,headers=headers)
     details = response.json()
     for detail in details:
@@ -75,7 +75,7 @@ def payments(request):
 
 def merchantBills(request):
     url = ('http://127.0.0.1:8000/api/BillsDetails/')
-    headers = {'Authorization': 'Token 2683eacc0edd0c08360e7532197f303dc574a3ac'}
+    headers = {'Authorization': 'Token 2b42fbfc066116e0359afcf5b3253212b834bc64'}
     response = requests.get(url,headers=headers)
     details = response.json()
     for detail in details:
@@ -91,3 +91,20 @@ def merchantBills(request):
         generated_by = detail.get('generated_by')
         status = detail.get('status')
     return render(request, 'merchant_bills.html', {'details': details})
+
+
+def PostPayment(request):
+    if request.method == 'POST':
+        url = ('http://127.0.0.1:8000/api/BillsDetails/')
+        headers = {'Authorization': 'Token 2b42fbfc066116e0359afcf5b3253212b834bc64'}
+        response = requests.post(url,headers=headers)
+        details = response.json()
+        for detail in details:
+            id = detail.get('id')
+            bill_number = detail.get('bill_number')
+            customer_phone = detail.get('payers_name')
+            payers_phone = detail.get('payers_phone')
+            narration = detail.get('narration')
+            amount = detail.get('date')
+        return render(request, 'pay_bills.html', {'details': details})
+
