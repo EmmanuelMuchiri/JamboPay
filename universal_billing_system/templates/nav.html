@@ -41,6 +41,13 @@
 
       </li>
       </li>
+      <div style="float: left;">
+        <form class="navbar-form" role="search" action="{% url 'search'%}">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search Customer " name="customer_name">
+            </div>
+          </form>
+    </div>
 
       {% else %}
       <li>
@@ -50,13 +57,7 @@
 
 
     </ul>
-    <div style="float: left;">
-        <form class="navbar-form" role="search" action="{% url 'search'%}">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search Customer " name="customer_name">
-            </div>
-          </form>
-    </div>
+    
 
 
   </div>
