@@ -34,9 +34,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'sz-!$gz58baufz3zlp)-5s%!2ve+v5ulwmu+7tpyi4#6x%f6y$'
+# SECRET_KEY = 'sz-!$gz58baufz3zlp)-5s%!2ve+v5ulwmu+7tpyi4#6x%f6y$'
 MODE=config("MODE", default="dev")
-# SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 if config('MODE')=="dev":
