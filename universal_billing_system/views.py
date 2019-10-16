@@ -65,7 +65,7 @@ def index(request):
 
         print(current_user.is_superuser,"Admiiiiin")
 
-        return redirect(jamboAdmin_views.indexone)
+        return redirect(jamboAdmin_views.home)
     else:
 
         return render(request, 'index.html')
@@ -81,8 +81,6 @@ def upload(request):
     else:
         form = UploadFileForm()
     return render_to_response('index.html', {'form': form}, context_instance=RequestContext(request))
-
-
 def bills(request):
     return render(request, 'bills.html')
 
@@ -224,7 +222,7 @@ def new_bill(request):
     else:
         form = BillsForm()
 
-    return render(request, 'bills/new-bill.html', {"form": form})
+    return render(request, 'new-bill.html', {"form": form})
 
 
 def notification(request):

@@ -1,4 +1,6 @@
+{% extends 'indexone.html'%}
 {% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,18 +15,17 @@
 
 <body>
   {% block content %}
-  {% include 'indexone.html' %}
   <br>
   <h2 style="text-align: center;">MERCHANT DETAILS</h2>
   <br>
-  <div class="row">
+  <div class="row card-body card-fluid"  style="width:auto; padding-left:12em;">
 
     <div class="col-md-1"></div>
 
         <div class="col-md-10">
-            <table class="table table-bordered table-primary">
+            <table class=" table table-bordered table-striped">
                 <thead>
-                    <tr>
+                    <tr style="background-color:#9CC4DD;">
                         <th>Merchant Number</th>
                         <th>Business Name</th>
                         <th>Email</th>

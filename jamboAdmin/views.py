@@ -69,19 +69,19 @@ def signup(request):
             # recipient = NewsLetterRecipients(name=name, email=email,amount=amount,quantity=quantity)
             # recipient.save()
             send_message(name, email)
-            return redirect('indexone')
+            return redirect('home')
     else:
         form = merchantUSers()
 
 #     return render(request, 'registration/registration_form.html', {'form': form})
 
-def indexone(request):
-    return render(request, 'indexone.html')
+def home(request):
+    return render(request, 'home.html')
 
 @login_required(login_url='/accounts/login/')
 def merchants(request):
     url = ('http://127.0.0.1:8000/api/GetMerchants')
-    headers = {'Authorization': 'Token ebc54da6a56a1cd1999da6b784b36015af411bc5'}
+    headers = {'Authorization': 'Token 2a64cd982a4bf14e225e3745a76e91df380f67aa'}
     response = requests.get(url, headers=headers)
     details = response.json()
     for detail in details:
@@ -99,7 +99,7 @@ def merchants(request):
 @login_required(login_url='/accounts/login/')
 def revenueStreams(request):
     url = ('http://127.0.0.1:8000/api/GetRevenueStreams')
-    headers = {'Authorization': 'Token ebc54da6a56a1cd1999da6b784b36015af411bc5'}
+    headers = {'Authorization': 'Token 2a64cd982a4bf14e225e3745a76e91df380f67aa'}
     response = requests.get(url, headers=headers)
     details = response.json()
     for detail in details:
@@ -110,7 +110,7 @@ def revenueStreams(request):
 
 def payments(request):
     url = ('http://127.0.0.1:8000/api/GetPayments/')
-    headers = {'Authorization': 'Token ebc54da6a56a1cd1999da6b784b36015af411bc5'}
+    headers = {'Authorization': 'Token 2a64cd982a4bf14e225e3745a76e91df380f67aa'}
     response = requests.get(url,headers=headers)
     details = response.json()
     for detail in details:
@@ -127,7 +127,7 @@ def payments(request):
 
 def merchantBills(request):
     url = ('http://127.0.0.1:8000/api/BillsDetails/')
-    headers = {'Authorization': 'Token ebc54da6a56a1cd1999da6b784b36015af411bc5'}
+    headers = {'Authorization': 'Token 2a64cd982a4bf14e225e3745a76e91df380f67aa'}
     response = requests.get(url,headers=headers)
     details = response.json()
     for detail in details:
@@ -142,6 +142,7 @@ def merchantBills(request):
         due_date = detail.get('due_date')
         generated_by = detail.get('generated_by')
         status = detail.get('status')
+        bill_id = detail.get('bill_id')
     return render(request, 'merchant_bills.html', {'details': details})
 
 
@@ -167,4 +168,4 @@ def addEmployee(request):
 
         form=AddEmployeeForm()
 
-    return render(request, 'admins/add_employee.html', {'form': form})
+    return render(request, 'add_employee.html', {'form': form})

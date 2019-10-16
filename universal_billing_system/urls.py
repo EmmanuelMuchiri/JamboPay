@@ -5,7 +5,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from . import views
-
 urlpatterns=[
     url(r'^$',views.index,name='Index'),
     url(r'^customers/$',views.customers,name='customers'),

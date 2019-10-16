@@ -60,7 +60,6 @@ class Bills(models.Model):
     post_date = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(help_text='Due date',default=None)
     bill_id = models.CharField(max_length=120, blank= True)
-
     status = models.CharField(choices=Status,default='Unpaid',max_length=10)
     generated_by=models.CharField(max_length=255,blank=False)
     
@@ -86,7 +85,7 @@ class NewsLetterRecipients(models.Model):
     quantity = models.FloatField(blank=False, default=None)
 
 class Payments(models.Model):
-    # bill_number = models.ForeignKey(Bills,on_delete=models.CASCADE,default=None)
+    bill_number = models.ForeignKey(Bills,on_delete=models.CASCADE,default=None)
     payers_name = models.CharField(max_length=255,blank=False)
     payers_phone = models.CharField(max_length=255,blank=False)
     narration = models.CharField(max_length=255,blank=False)
