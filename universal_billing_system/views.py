@@ -378,6 +378,3 @@ def addEmployee(request):
 
 
 
-#template
-import mimetypes
-
