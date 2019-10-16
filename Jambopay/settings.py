@@ -220,8 +220,8 @@ BOOTSTRAP4 = {
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_USE_TLS=True
 EMAIL_PORT=587
-EMAIL_HOST_USER='emmahg6@gmail.com'
-EMAIL_HOST_PASSWORD='Emmanuel@71270706915605!'
+EMAIL_HOST_USER='django1baby@gmail.com'
+EMAIL_HOST_PASSWORD='diehumandie'
 
 
 django_heroku.settings(locals())
