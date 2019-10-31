@@ -90,7 +90,7 @@ class Payments(models.Model):
     payers_phone = models.CharField(max_length=255,blank=False)
     narration = models.CharField(max_length=255,blank=False)
     amount = models.FloatField(blank=False)
-    pay_date = models.DateTimeField(auto_now_add=True)
+    pay_date = models.DateField(auto_now_add=True)
 
     def save_bill(self):
         self.save()

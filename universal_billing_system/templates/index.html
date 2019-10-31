@@ -35,17 +35,10 @@
                 <a style="color: #000;" class="nav-link " href="{% url 'Index'%}">Home<span
                         class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown">
-                    <a style="color: #000;" class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Bills
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="{% url 'new-bill' %}">Generate Bill</a>
-                      <a class="dropdown-item" href="{% url 'bills_upload'%}">Upload Bill</a>
-                      <a class="dropdown-item" href="{% url 'merchantbills'%}">Bill Details</a>
-                    </div>
-                  </li>
+            
+            <li class="nav-item">
+                    <a class='nav-link' href="{% url 'addEmployee' %}">Merchant Panel</a>
+                </li>
             
             {% if user.is_authenticated %}
 
@@ -90,7 +83,7 @@
         left: 0;
     }
 
-    .image-box__background {
+    .image-box__background {    
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
@@ -163,7 +156,7 @@
     <div class="image-box__content buttons row">
         <div class="col-md-1"></div>
         <div class="col-md-5">
-            <ul>
+            <!-- <ul>
                 <li><a style="background-color:#0074b6;" class="btn btn-primary btn-lg nav-link"
                         href="{% url 'new-bill' %}">Generate
                         Bill</a></li>
@@ -172,7 +165,7 @@
                         Bill</a></li>
                 <li><a style="background-color:#0074b6;" class="btn btn-primary btn-lg nav-link"
                         href="{% url 'merchantbills'%}">View Bills</a></li>
-            </ul>
+            </ul> -->
         </div>
         <div class="col-md-6"></div>
     </div>
